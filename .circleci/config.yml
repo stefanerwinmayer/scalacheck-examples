@@ -1,0 +1,33 @@
+version: 2.1
+
+jobs:
+  build:
+    working_directory: ~/scalacheck-examples
+    docker:
+      - image: circleci/openjdk:8-jdk
+    environment:
+      TERM: dumb
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "project/Dependencies.scala" }}{{ checksum "project/plugins.sbt" }}
+            - v1-dependencies-
+      - run: "sbt update"
+      - save_cache:
+          key: v1-dependencies-{{ checksum "project/Dependencies.scala" }}{{ checksum "project/plugins.sbt" }}
+          paths:
+            - ~/.iv2/cache/
+            - ~/.sbt/
+            - ~/.m2/
+      - run: "sbt compile"
+      - run: "sbt test:compile"
+      - run: "sbt scalafmtSbtCheck"
+      - run: "sbt dependencyUpdatesFailBuild"
+      - run: "sbt coverage test"
+      - run: "sbt coverageReport"
+      - run: "sbt coverageAggregate"
+      - run: "sbt codacyCoverage"
+      - run: "sbt scalastyle"
+      - run: "sbt scapegoat"
+      - run: "sbt -Dsonar.login=$SONAR_LOGIN sonarScan"
