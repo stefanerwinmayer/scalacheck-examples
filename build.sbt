@@ -5,6 +5,7 @@ ThisBuild / scalaVersion := "2.12.9"
 ThisBuild / version := "0.1.0-SNAPSHOT"
 ThisBuild / organization := "com.stefanemayer"
 ThisBuild / organizationName := "stefanemayer"
+ThisBuild / scapegoatVersion := "1.3.8"
 
 lazy val root = (project in file("."))
   .settings(
@@ -20,7 +21,6 @@ lazy val root = (project in file("."))
       "sonar.scala.scapegoat.reportPaths" -> "target/scala-2.12/scapegoat-report/scapegoat-scalastyle.xml",
       "sonar.scala.scalastyle.reportPaths" -> "target/scalastyle-result.xml"
     ),
-    scapegoatVersion in ThisBuild := "1.3.8",
     coverageEnabled := true,
     wartremoverWarnings ++= Warts.all
   )
