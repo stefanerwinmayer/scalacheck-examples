@@ -17,7 +17,7 @@ lazy val root = (project in file("."))
     sonarProperties ++= Map(
       "sonar.projectKey" -> "stefanerwinmayer_scalacheck-examples",
       "sonar.organization" -> "stefanerwinmayer-github",
-      "sonar.sources" -> "src/main/scala",com
+      "sonar.sources" -> "src/main/scala",
       "sonar.tests" -> "src/test/scala",
       "sonar.host.url" -> "https://sonarcloud.io",
       "sonar.scala.coverage.reportPaths" -> "target/scala-2.12/scoverage-report/scoverage.xml",
