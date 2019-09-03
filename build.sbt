@@ -10,11 +10,14 @@ ThisBuild / scapegoatVersion := "1.3.8"
 lazy val root = (project in file("."))
   .settings(
     name := "ScalaCheck Examples",
-    libraryDependencies += scalaTest % Test,
+    libraryDependencies ++= Seq(
+      scalaTest % Test,
+      scalaCheck % Test
+    ),
     sonarProperties ++= Map(
       "sonar.projectKey" -> "stefanerwinmayer_scalacheck-examples",
       "sonar.organization" -> "stefanerwinmayer-github",
-      "sonar.sources" -> "src/main/scala",
+      "sonar.sources" -> "src/main/scala",com
       "sonar.tests" -> "src/test/scala",
       "sonar.host.url" -> "https://sonarcloud.io",
       "sonar.scala.coverage.reportPaths" -> "target/scala-2.12/scoverage-report/scoverage.xml",
