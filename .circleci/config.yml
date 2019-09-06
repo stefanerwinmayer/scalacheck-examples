@@ -25,7 +25,6 @@ jobs:
       - run: "sbt scalafmtSbtCheck"
       - run: "sbt dependencyUpdatesFailBuild"
       - run: "sbt test"
-      - run: "sbt codacyCoverage"
       - run: "sbt scalastyle"
       - run: "sbt scapegoat"
       - run: "sbt -Dsonar.login=$SONAR_LOGIN sonarScan"
