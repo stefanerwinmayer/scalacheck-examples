@@ -25,5 +25,5 @@ lazy val root = (project in file("."))
       "sonar.scala.scalastyle.reportPaths" -> "target/scalastyle-result.xml"
     ),
     coverageEnabled := true,
-    wartremoverWarnings ++= Warts.all
+    wartremoverWarnings ++= Warts.unsafe
   )
