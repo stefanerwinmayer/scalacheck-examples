@@ -5,9 +5,7 @@ case class Node(left: Tree, right: Tree, v: Int) extends Tree
 case object Leaf extends Tree
 
 import org.scalacheck.Arbitrary.arbitrary
-import org.scalacheck.Gen.const
-import org.scalacheck.Gen.oneOf
-import org.scalacheck.Gen.lzy
+import org.scalacheck.Gen.{const, lzy, oneOf}
 import org.scalacheck.{Gen, Properties}
 
 object GeneratingCaseClasses extends Properties("generatingCaseClasses") {
