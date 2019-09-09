@@ -27,7 +27,7 @@ lazy val root = (project in file("."))
       "sonar.tests" -> "src/test/scala",
       "sonar.host.url" -> "https://sonarcloud.io",
       "sonar.scala.scapegoat.reportPaths" -> "target/scala-2.12/scapegoat-report/scapegoat-scalastyle.xml",
-      "sonar.scala.scalastyle.reportPaths" -> "target/scalastyle-result.xml"
+      "sonar.scala.scalastyle.reportPaths" -> "target/scalastyle-test-result.xml"
     ),
     wartremoverWarnings ++= Warts.unsafe
   )
