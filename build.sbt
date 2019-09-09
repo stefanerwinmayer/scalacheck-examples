@@ -10,6 +10,11 @@ ThisBuild / scapegoatVersion := "1.3.8"
 lazy val root = (project in file("."))
   .settings(
     name := "ScalaCheck Examples",
+    addCompilerPlugin(scalafixSemanticdb),
+    scalacOptions ++= List(
+      "-Yrangepos", // required by SemanticDB compiler plugin
+      "-Ywarn-unused-import" // required by `RemoveUnused` rule
+    ),
     libraryDependencies ++= Seq(
       scalaTest % Test,
       scalaCheck % Test
