@@ -14,7 +14,7 @@ jobs:
             - v1-dependencies-{{ checksum "project/Dependencies.scala" }}{{ checksum "project/plugins.sbt" }}
             - v1-dependencies-
       - run: "sbt update"
-      - run: "sbt 'scalafix --version'" // Workaround to download scalafix's coursier dependencies
+      - run: "sbt 'scalafix --version'" # Workaround to download scalafix's coursier dependencies
       - save_cache:
           key: v1-dependencies-{{ checksum "project/Dependencies.scala" }}{{ checksum "project/plugins.sbt" }}
           paths:
