@@ -25,7 +25,7 @@ jobs:
       - run: "sbt test:compile"
       - run: "sbt scalafmtSbtCheck"
       - run: "sbt scalafmtCheck"
-      - run: "sbt test:scalafmtCheck
+      - run: "sbt test:scalafmtCheck"
       - run: "sbt 'test:scalafix --check'"
       - run: "sbt dependencyUpdatesFailBuild"
       - run: "sbt test"
