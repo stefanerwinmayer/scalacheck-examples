@@ -11,12 +11,12 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "project/Dependencies.scala" }}{{ checksum "project/plugins.sbt" }}-test3
+            - v1-dependencies-{{ checksum "project/Dependencies.scala" }}{{ checksum "project/plugins.sbt" }}
             - v1-dependencies-
       - run: "sbt update"
-      - run: "sbt 'scalafix --version'"
+      - run: "sbt 'scalafix --version'" // Workaround to download scalafix's coursier dependencies
       - save_cache:
-          key: v1-dependencies-{{ checksum "project/Dependencies.scala" }}{{ checksum "project/plugins.sbt" }}-test3
+          key: v1-dependencies-{{ checksum "project/Dependencies.scala" }}{{ checksum "project/plugins.sbt" }}
           paths:
             - ~/.iv2/cache/
             - ~/.sbt/
