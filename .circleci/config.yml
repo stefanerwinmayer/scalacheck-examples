@@ -11,16 +11,16 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "project/Dependencies.scala" }}{{ checksum "project/plugins.sbt" }}-test2
+            - v1-dependencies-{{ checksum "project/Dependencies.scala" }}{{ checksum "project/plugins.sbt" }}-test3
             - v1-dependencies-
       - run: "sbt update"
       - run: "sbt 'scalafix --version'"
       - save_cache:
-          key: v1-dependencies-{{ checksum "project/Dependencies.scala" }}{{ checksum "project/plugins.sbt" }}-test2
+          key: v1-dependencies-{{ checksum "project/Dependencies.scala" }}{{ checksum "project/plugins.sbt" }}-test3
           paths:
             - ~/.iv2/cache/
             - ~/.sbt/
-            - ~/.coursier/cache/
+            - ~/.cache/
             - ~/.m2/
       - run: "sbt compile"
       - run: "sbt test:compile"
